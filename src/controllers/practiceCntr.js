@@ -1,11 +1,10 @@
-const asyncHandler = require("express-async-handler");
 const practiceModel = require("../models/practiceModel");
 
-const getAllData = asyncHandler(async (req, res) => {
+const getAllData = async (req, res) => {
   res.send("get all practice data");
-});
+}
 
-const createData = asyncHandler(async (req, res) => {
+const createData = async (req, res) => {
   const { employee_name, department } = req.body;
 
   try {
@@ -20,6 +19,6 @@ const createData = asyncHandler(async (req, res) => {
     console.log(error);
     // throw new Error("db error");
   }
-});
+}
 
 module.exports = { getAllData, createData };

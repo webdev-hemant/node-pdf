@@ -1,10 +1,9 @@
-const asyncHandler = require("express-async-handler");
 const Contact = require("../models/contactModel");
 
 const getAllContacts = (req, res) => {
   res.json({ message: "this is get all contacts" });
 };
-const postContact = asyncHandler(async (req, res) => {
+const postContact = async (req, res) => {
   // res.json({ message: "this is post contacts" });
 
   // console.log("The request body is :", req.body);
@@ -21,7 +20,7 @@ const postContact = asyncHandler(async (req, res) => {
   });
 
   res.status(201).json(contact);
-});
+};
 
 const getOneContact = (req, res) => {
   res.json({ message: "this is get One contacts" });

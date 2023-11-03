@@ -2,11 +2,10 @@ const PDFDocument = require("pdfkit");
 const fs = require("fs");
 const doc = new PDFDocument();
 
-const createPdfFile = ({ pdfName = "example3" }) => {
-    console.log('file created started')
-    // return new Promise((resolve, reject) => {
-    //     try {
-            doc.pipe(fs.createWriteStream(`example3.pdf`));
+const createPdfFile = ({ pdfName } = { pdfName: "example5" }) => {
+    return new Promise((resolve, reject) => {
+        try {
+            doc.pipe(fs.createWriteStream(`${pdfName}.pdf`));
 
             doc.fontSize(27).text("This the article by Hemant Jadhav", 100, 100);
 
@@ -40,11 +39,11 @@ const createPdfFile = ({ pdfName = "example3" }) => {
             // Finalize PDF file
             doc.end();
             console.log('file created successfull')
-            // resolve();
-        // } catch (error) {
-        //     reject(error);
-        // }
-    // });
+            resolve();
+        } catch (error) {
+            reject(error);
+        }
+    });
 };
 
 module.exports = { createPdfFile };
