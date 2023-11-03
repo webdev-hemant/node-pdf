@@ -14,10 +14,9 @@ const pdfRouter = Router();
 
 // routes
 pdfRouter.route("/").get(getAllPdfs);
-
+pdfRouter.route("/create").post(createPdf)
 pdfRouter
     .route("/:id")
-    .post(createPdf)
     .get(getOnePdf)
     .put(putPdf)
     .delete(deletePdf);

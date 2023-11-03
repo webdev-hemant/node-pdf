@@ -6,7 +6,7 @@ const getAllPdfs = (req, res) => {
 };
 const createPdf = asyncHandler(async (req, res) => {
 
-    // console.log("The request body is :", req.body);
+    console.log("The request body is :", req.body);
     //   const { name, email, phone } = req.body;
     //   if (!name || !email || !phone) {
     //     res.status(400);
