@@ -7,9 +7,11 @@ const errorHandler = require("./src/middlerwares/errorHandle");
 require("dotenv").config({});
 const app = express();
 const port = process.env.PORT;
+const path = require("path")
 
 // db connection
 // connectDb();
+console.log('cwd', path.join(process.cwd(), "/src/storage/pdfs/"));
 
 // middlewares
 app.use(express.json());

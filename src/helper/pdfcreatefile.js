@@ -1,11 +1,16 @@
 const PDFDocument = require("pdfkit");
 const fs = require("fs");
 const doc = new PDFDocument();
+const path = require("path");
 
 const createPdfFile = ({ pdfName } = { pdfName: "example5" }) => {
     return new Promise((resolve, reject) => {
         try {
-            doc.pipe(fs.createWriteStream(`${pdfName}.pdf`));
+            console.log(path.dirname)
+            const fileName = `${pdfName}.pdf`;
+            const filePath = path.join(process.cwd(), fileName)
+            console.log(filePath);
+            doc.pipe(fs.createWriteStream(filePath));
 
             doc.fontSize(27).text("This the article by Hemant Jadhav", 100, 100);
 
